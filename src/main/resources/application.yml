@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: oauth2
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/oauth2_test
+    username: oauth2_test
+    password: oauth2_test
