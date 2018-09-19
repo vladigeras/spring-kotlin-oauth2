@@ -11,11 +11,13 @@ import ru.vladigeras.oauth2.service.UserService
  * @author vladi_geras on 15.09.2018
  */
 @Service
-class UserServiceImpl(@Autowired private val userRepository: UserRepository) : UserService {
+class UserServiceImpl : UserService {
 
+	@Autowired
+	private val userRepository: UserRepository? = null
 
 	@Transactional
 	override fun findUserByLogin(login: String): UserEntity? {
-		return userRepository.findByLogin(login)
+		return userRepository?.findByLogin(login)
 	}
 }

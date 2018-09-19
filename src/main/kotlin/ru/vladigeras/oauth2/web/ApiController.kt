@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController
  * @author vladi_geras on 15.09.2018
  */
 @RestController
-@RequestMapping(value = ["/test"])
-class TestController {
+@RequestMapping(value = ["/api"])
+class ApiController {
 
 	@GetMapping(value = ["/message"])
 	fun getMessage(): String {

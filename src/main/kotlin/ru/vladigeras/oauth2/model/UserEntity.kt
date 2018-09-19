@@ -7,7 +7,7 @@ import javax.persistence.*
  */
 @Entity
 @Table(name = "users")
-open class UserEntity : LongIdentifiableEntity {
+open class UserEntity : LongIdentifiableEntity() {
 
 	@Column(name = "login")
 	var login: String? = null
@@ -16,10 +16,11 @@ open class UserEntity : LongIdentifiableEntity {
 	var password: String? = null
 
 	@ElementCollection(fetch = FetchType.LAZY)
-	@CollectionTable(name = "user_role", joinColumns = arrayOf(JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)), uniqueConstraints = arrayOf(UniqueConstraint(columnNames = arrayOf("user_id", "role"))))
+	@CollectionTable(name = "user_role",
+			joinColumns = [JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)],
+			uniqueConstraints = [UniqueConstraint(columnNames = arrayOf("user_id", "role"))])
 	@Enumerated(value = EnumType.STRING)
 	@Column(name = "role")
-	var roles: Set<Role>? = null
+	var roles: MutableSet<Role>? = null
 
-	constructor()
 }

@@ -13,3 +13,12 @@ spring:
     url: jdbc:postgresql://localhost:5432/oauth2_test
     username: oauth2_test
     password: oauth2_test
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
